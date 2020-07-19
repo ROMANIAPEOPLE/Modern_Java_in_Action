@@ -20,7 +20,6 @@ public class ch2_142 {
 
         List<String> highCal2 = Dish.menu.stream().filter(dish -> dish.getCalories() >300).map(Dish::getName).collect(Collectors.toList());;
 
-        System.out.println(highCal2);
 
     }
 
