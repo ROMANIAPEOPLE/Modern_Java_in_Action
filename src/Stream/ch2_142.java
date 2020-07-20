@@ -5,6 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 public class ch2_142 {
 
     public static void main(String[] args){
@@ -18,8 +20,9 @@ public class ch2_142 {
         }
         System.out.println(highCal);
 
-        List<String> highCal2 = Dish.menu.stream().filter(dish -> dish.getCalories() >300).map(Dish::getName).collect(Collectors.toList());;
+        List<Dish> highCal2 = Dish.menu.stream().filter(dish -> dish.getCalories() >300).collect(toList());;
 
+        System.out.println(highCal2);
 
     }
 
