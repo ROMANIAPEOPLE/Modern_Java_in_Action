@@ -58,6 +58,13 @@ public class Dish {
             new Dish("salmon", false, 450, Dish.Type.FISH)
     );
 
+    public static final List<Dish> specialMenu = Arrays.asList(
+            new Dish("season fruit", true, 120, Dish.Type.OTHER),
+            new Dish("prawns", false, 300, Dish.Type.FISH),
+            new Dish("rice", true, 350, Dish.Type.OTHER),
+            new Dish("chicken", false, 400, Dish.Type.MEAT),
+            new Dish("french fries", true, 530, Dish.Type.OTHER)
+    );
     public static void main(String[] args){
         //java 8 Stream 사용
         List<String> threeHighCal = menu.stream().filter(dish -> dish.getCalories() > 300).map(Dish::getName)
