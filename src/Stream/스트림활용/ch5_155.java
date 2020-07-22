@@ -1,4 +1,6 @@
-package Stream;
+package Stream.스트림활용;
+
+import Stream.Dish;
 
 import java.util.ArrayList;
 import java.util.List;

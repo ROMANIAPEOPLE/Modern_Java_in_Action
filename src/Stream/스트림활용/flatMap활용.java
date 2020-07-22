@@ -1,13 +1,13 @@
-package Stream;
+package Stream.스트림활용;
 
-import javax.xml.bind.SchemaOutputResolver;
+import Stream.Dish;
+
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 
-public class ch5_157 {
+public class flatMap활용 {
     public static void main(String[] args){
         List<Integer> number = Arrays.asList(1,2,3,1,3,3,2,4);
         number.stream().filter( i -> i%2 == 0).distinct().forEach(System.out::println);

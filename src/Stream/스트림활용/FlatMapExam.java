@@ -1,4 +1,4 @@
-package Stream;
+package Stream.스트림활용;
 
 import java.util.Arrays;
 import java.util.Set;
