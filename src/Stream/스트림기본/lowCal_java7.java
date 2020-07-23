@@ -1,4 +1,4 @@
-package Stream;
+package Stream.스트림기본;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -5,7 +5,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class ch5_162 {
+public class flatMap_split {
     public static void main(String[] args){
         List<String> words = Arrays.asList("Hello","World");
 

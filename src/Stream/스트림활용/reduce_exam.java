@@ -1,10 +1,12 @@
 package Stream.스트림활용;
 
-import Stream.Dish;
+import Stream.스트림기본.Dish;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+//reduce를 활용한 예제
 
 public class reduce_exam {
         public static void main(String[] args){

@@ -1,7 +1,6 @@
-package Stream;
+package Stream.스트림기본;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 

@@ -1,6 +1,6 @@
 package Stream.스트림활용;
 
-import Stream.Dish;
+import Stream.스트림기본.Dish;
 
 import java.util.Arrays;
 import java.util.List;
