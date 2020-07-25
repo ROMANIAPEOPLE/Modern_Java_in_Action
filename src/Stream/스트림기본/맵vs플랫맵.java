@@ -2,6 +2,7 @@ package Stream.스트림기본;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 class Person {
@@ -54,6 +55,12 @@ public class 맵vs플랫맵 {
 
         Arrays.stream(words).map(t->t.split("")).flatMap(Arrays::stream).forEach(System.out::println);
 
+
+
+        final Function<String,Integer> toInt = v->Integer.parseInt(v);
+        Integer nums = toInt.apply("102");
+
+        System.out.println(nums);
 
 
     }
