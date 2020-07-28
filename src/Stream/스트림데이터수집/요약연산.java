@@ -1,10 +1,10 @@
 package Stream.스트림데이터수집;
 
+import java.util.IntSummaryStatistics;
 import java.util.Optional;
 import java.util.OptionalInt;
 
-import static java.util.stream.Collectors.averagingDouble;
-import static java.util.stream.Collectors.summingInt;
+import static java.util.stream.Collectors.*;
 
 public class 요약연산 {
     public static void main(String[] args) {
@@ -26,8 +26,16 @@ public class 요약연산 {
         System.out.println(totalCal4);
         System.out.println(totalCal5);
 
+        //평균구하기
         double avgCal = Dish.menu.stream().collect(averagingDouble(Dish::getCalories));
         System.out.println(avgCal);
+
+
+        //모든정보 추출하기
+        IntSummaryStatistics menuStatistics = Dish.menu.stream().collect(summarizingInt(Dish::getCalories));
+        System.out.println(menuStatistics);
+
+
 
 
     }
