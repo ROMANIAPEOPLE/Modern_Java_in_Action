@@ -67,7 +67,7 @@ public class 연습문제 {
         Optional<Transaction> min2 = transactions.stream().min(Comparator.comparing(Transaction::getValue));
         System.out.println(min2);
 
-        OptionalInt maxx = transactions.stream().mapToInt(Transaction::getValue).max();
+        OptionalInt maxx = transactions.stream().mapToInt(Transaction::getValue).min();
 
         System.out.println(maxx);
 
