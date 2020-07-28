@@ -1,9 +1,7 @@
 package Stream.스트림활용;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
 
@@ -41,6 +39,8 @@ public class 연습문제 {
         List<Trader> names = transactions.stream().map(Transaction::getTrader).filter(t->t.getCity().equals("Cambridge")).sorted(Comparator.comparing(Trader::getName)).distinct().collect(toList());
         System.out.println(names);
 
+        List<Trader> namess = transactions.stream().map(Transaction::getTrader).filter(t->t.getName().equals("Cambridge")).sorted(Comparator.comparing(Trader::getName)).distinct().collect(toList());
+
         //밀라노에 근무자가 있는가?
         boolean milano = transactions.stream().anyMatch(t->t.getTrader().getCity().equals("Milan"));
         System.out.println(milano);
@@ -66,6 +66,10 @@ public class 연습문제 {
 
         Optional<Transaction> min2 = transactions.stream().min(Comparator.comparing(Transaction::getValue));
         System.out.println(min2);
+
+        OptionalInt maxx = transactions.stream().mapToInt(Transaction::getValue).max();
+
+        System.out.println(maxx);
 
     }
 }
