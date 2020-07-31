@@ -79,8 +79,11 @@ public class 다수준그룹화 {
 
         System.out.println(q3);
 
+        //채식,비채식으로 분할 후 칼로리가 가장 높은 요리는?
+        Map<Boolean, Dish> mostCaloricPartitionedByVegetarian = Dish.menu.stream().collect(partitioningBy(Dish::isVegetarian,
+                collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)),Optional::get)));
 
-
+        System.out.println(mostCaloricPartitionedByVegetarian);
 
     }
 
