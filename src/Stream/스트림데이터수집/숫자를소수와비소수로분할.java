@@ -1,10 +1,13 @@
 package Stream.스트림데이터수집;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.partitioningBy;
 
@@ -16,6 +19,10 @@ public class 숫자를소수와비소수로분할 {
         Map<Boolean, List<Integer>> map = s.partitionPrimes(50);
         System.out.println(map);
 
+        List<String> f= Arrays.asList("d","f","ff","dd");
+        f.add("dd");
+
+        System.out.println(f);
 
     }
 
@@ -33,6 +40,9 @@ public class 숫자를소수와비소수로분할 {
     public  Map<Boolean, List<Integer>> partitionPrimes(int n){
         return IntStream.rangeClosed(2,n).boxed().collect(partitioningBy(c->isPrime2(c)));
     }
+
+
+
 
 
 
