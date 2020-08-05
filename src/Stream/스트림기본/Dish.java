@@ -74,20 +74,20 @@ public class Dish {
         //java 7은 ?
         List<String> threeHighCal2 = new ArrayList<>();
         List<String> res = new ArrayList<>();
-             for(Dish dish : menu){
-                if(dish.getCalories() > 300) {
-                    threeHighCal2.add(dish.getName());
-                }
+        for(Dish dish : menu){
+            if(dish.getCalories() > 300) {
+                threeHighCal2.add(dish.getName());
             }
-            int i=3;
-            for(String s : threeHighCal2){
-                if( i !=0){
-                    i--;
-                    res.add(s);
-                }else {
-                    break;
-                }
+        }
+        int i=3;
+        for(String s : threeHighCal2){
+            if( i !=0){
+                i--;
+                res.add(s);
+            }else {
+                break;
             }
+        }
         System.out.println(res);
 
 
