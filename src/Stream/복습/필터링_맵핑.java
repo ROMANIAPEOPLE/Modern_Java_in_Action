@@ -4,7 +4,9 @@ import Stream.스트림기본.Dish;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
 
@@ -28,10 +30,30 @@ public class 필터링_맵핑 {
         List<String> words = asList("Hello", "worlds");
         words.stream().map(s->s.split("")).flatMap(Arrays::stream).distinct().forEach(System.out::print);
 
+        String[][] namesArray = new String[][]{
+                {"kim", "taeng"}, {"mad", "play"},
+                {"kim", "mad"}, {"taeng", "play"}};
+
+        Set<String> set = Arrays.stream(namesArray).flatMap(Arrays::stream).collect(Collectors.toSet());
+        System.out.println(set);
 
 
-
+        //소수 구하기
+        System.out.println(isPrime(2));
+        //효율적인 소수 구하기
+        System.out.println(isPrime2(4));
 
 
     }
+    //소수 구하기
+    public static boolean isPrime(int n){
+        return IntStream.range(2,n).noneMatch(s->n%s ==0);
+    }
+
+    public static boolean isPrime2(int n){
+        int value = (int)Math.sqrt((double)n);
+        return IntStream.rangeClosed(2,value).noneMatch(s->n%s == 0);
+    }
+
+
 }
