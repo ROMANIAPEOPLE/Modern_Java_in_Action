@@ -42,6 +42,9 @@ public class 리듀싱 {
         Optional<Integer> maxValue3 = Dish.menu.stream().map(Dish::getCalories).reduce(Integer::max);
         System.out.println(maxValue3);
 
+        OptionalInt i = Dish.menu.stream().mapToInt(Dish::getCalories).min();
+
+
 
     }
 }
