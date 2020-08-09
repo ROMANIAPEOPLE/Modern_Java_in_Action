@@ -44,7 +44,14 @@ public class 리듀싱 {
 
         OptionalInt i = Dish.menu.stream().mapToInt(Dish::getCalories).min();
 
+        Optional<Integer> maxValue4 = Dish.menu.stream().map(Dish::getCalories).reduce(Integer::max);
 
+
+        /**
+         * 1. Optional<T> 는 숫자 스트림으로 맵핑할 수 없다. 따라서 mapToInt는 사용 불가능.\
+         * 2. 숫자 스트림으로 맵핑은 mapToInt, mapToDouble, , MapToLong 세 가지로, map과 동일한 기능을 수행하지만, Stream<T> 대신 특화된 스트림을 반환
+         * 3. OptionalInt 와 같은 기본형 특화 스트림은 mapToInt와 함께 사용하고, max()와 min()을 호출할 수 있다.
+         */
 
     }
 }
