@@ -10,13 +10,13 @@ import static java.util.stream.Collectors.*;
 public class 데이터수집_1 {
 
     public enum CaloricLevel {
-        DIET , NORMAL , FAT
+        DIET, NORMAL, FAT
     }
 
     public static void main(String[] args) {
 
         //groupingBy  : map을 리턴
-        Map<Dish.Type , List<Dish>> map = Dish.menu.stream().collect(groupingBy(Dish::getType));
+        Map<Dish.Type, List<Dish>> map = Dish.menu.stream().collect(groupingBy(Dish::getType));
         System.out.println(map);
 
         //갯수를 세는 메서드
@@ -26,7 +26,7 @@ public class 데이터수집_1 {
         //스트림 값에서 가장 큰 값을 찾는 방법(객체형)
         Comparator<Dish> dishCalCom = Comparator.comparingInt(Dish::getCalories);
 
-        Optional<Dish> maxValue = Dish.menu.stream().collect(maxBy(dishCalCom));
+        Optional<Dish> maxValue = Dish.menu.stream().collect(maxBy(Comparator.comparingInt(Dish::getCalories)));
         System.out.println(maxValue.get().getCalories());
         System.out.println(maxValue);
 
@@ -63,20 +63,38 @@ public class 데이터수집_1 {
 //            else return CaloricLevel.FAT;
 //        }));
 
-        Map<CaloricLevel, List<Dish>> map2 = Dish.menu.stream().collect(groupingBy(d-> {
-            if(d.getCalories() <=400) return CaloricLevel.DIET;
-            else if(d.getCalories() <=700) return CaloricLevel.NORMAL;
+        Map<CaloricLevel, List<Dish>> map2 = Dish.menu.stream().collect(groupingBy(d -> {
+            if (d.getCalories() <= 400) return CaloricLevel.DIET;
+            else if (d.getCalories() <= 700) return CaloricLevel.NORMAL;
             else return CaloricLevel.FAT;
         }));
 
         //그룹핑에도 필터링 적용할 수 있음.
-        Map<Dish.Type, List<Dish>> map3 = Dish.menu.stream().filter(d->d.getCalories() >=400).collect(groupingBy(Dish::getType));
+        Map<Dish.Type, List<Dish>> map3 = Dish.menu.stream().filter(d -> d.getCalories() >= 400).collect(groupingBy(Dish::getType));
         System.out.println(map3);
 
+        //다수준 그룹화
+        Map<Dish.Type, Map<CaloricLevel, List<Dish>>> multi  = Dish.menu.stream().collect(groupingBy(Dish::getType, groupingBy(d -> {
+            if(d.getCalories() <=400) return CaloricLevel.DIET;
+            else if(d.getCalories() <=700) return CaloricLevel.NORMAL;
+            else return CaloricLevel.FAT;
+        })));
+
+        System.out.println( multi);
+
+        // 첫번째 그룹핑으로 넘겨주는 컬렉터의 형식은 제한이 없음!
+        Map<Dish.Type , Long> typesCount = Dish.menu.stream().collect(groupingBy(Dish::getType , counting()));
+        System.out.println(typesCount);
 
 
+        //종류별로 분류해서 특정 값을 찾기
+        Map<Dish.Type , Optional<Dish>> mostCalType = Dish.menu.stream().collect(groupingBy(Dish::getType, maxBy(Comparator.comparingInt(Dish::getCalories))));
+        System.out.println(mostCalType);
 
-
+        //그룹핑바이와 함께 사용하는 컬렉터들
+        Map<Dish.Type, Integer> totalCaloriesByType = Dish.menu.stream().collect(groupingBy(Dish::getType,
+                summingInt(Dish::getCalories)));
+        System.out.println(totalCaloriesByType);
 
     }
 }
