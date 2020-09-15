@@ -1,7 +1,6 @@
 package Stream.복습;
 
 import Stream.스트림데이터수집.Dish;
-import com.sun.javafx.scene.control.skin.IntegerFieldSkin;
 
 import java.util.List;
 import java.util.Optional;
