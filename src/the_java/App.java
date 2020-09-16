@@ -25,5 +25,11 @@ public class App {
 
         String [] arr = {"apple" , "banana", "strawberry"};
         Arrays.sort(arr, String::compareToIgnoreCase);
+
+
+        Fooo fooo = new DefaultFoo("khh");
+        fooo.printName();
+        fooo.printNameUpperCase();
+
     }
 }
